@@ -7,11 +7,16 @@ base-version: '25.08'
 command: run.sh
 separate-locales: false
 finish-args:
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --socket=pulseaudio
   - --device=dri
   - --share=network
   - --share=ipc
+  # should fix controler navigation
+  - --filesystem=/run/udev:ro
+  # should fix discord rich presence
+  - --filesystem=xdg-run/app/com.discordapp.Discord:create
   - --filesystem=home
   - --filesystem=/media
   - --filesystem=/run/media
@@ -28,13 +33,13 @@ modules:
       - install -Dm0755 run.sh --target-directory=${FLATPAK_DEST}/bin/
     sources:
       - type: archive
-        url: https://github.com/ollm/OpenComic/releases/download/v1.6.5/opencomic-1.6.5.tar.gz
-        sha256: 469fa6e18f109b8241d721ea25834ddf16bc0793597882df5738e68084353663
+        url: https://github.com/ollm/OpenComic/releases/download/v1.6.5/opencomic-1.6.5.electron.43.tar.gz
+        sha256: 13982b0bd31540c40388f8f1ece4624117cbbe5fb144b4f2403c7a7e3bebe650
         only-arches:
           - x86_64
       - type: archive
-        url: https://github.com/ollm/OpenComic/releases/download/v1.6.5/opencomic-1.6.5-arm64.tar.gz
-        sha256: 370dbb6332f0c42561f6d38602f5650d01de96f13c0aca788f864e7d9c3ef75d
+        url: https://github.com/ollm/OpenComic/releases/download/v1.6.5/opencomic-1.6.5.electron.43-arm64.tar.gz
+        sha256: 80ceb40813b825764c4c716d0c6676e11ef1693100b380f4f172a29566bccf9c
         only-arches:
           - aarch64
       - type: file
