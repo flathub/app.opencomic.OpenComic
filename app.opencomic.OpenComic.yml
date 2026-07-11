@@ -10,7 +10,8 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --socket=pulseaudio
-  - --device=dri
+  # changed from dri to all to fix controler navigation
+  - --device=all
   - --share=network
   - --share=ipc
   # should fix controler navigation
