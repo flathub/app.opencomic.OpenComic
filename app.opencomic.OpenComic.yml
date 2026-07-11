@@ -39,7 +39,7 @@ modules:
           - x86_64
       - type: archive
         url: https://github.com/ollm/OpenComic/releases/download/v1.6.5/opencomic-1.6.5.electron.43-arm64.tar.gz
-        sha256: 80ceb40813b825764c4c716d0c6676e11ef1693100b380f4f172a29566bccf9c
+        sha256: 8b5b3529f2b16eb28f213243acad08a13b97b16e8cc5c2d0d1354e49f0199c67
         only-arches:
           - aarch64
       - type: file
